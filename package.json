@@ -42,9 +42,9 @@
   },
   "devDependencies": {
     "mathsass": "^0.10.1"
-  }
+  },
   "scripts": {
     "build": "NODE_ENV=production webpack -p --progress --profile --colors",
     "watch": "webpack-dev-server --hot --inline --progress --colors --watch-poll"
-  },
+  }
 }
