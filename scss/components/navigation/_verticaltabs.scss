@@ -4,6 +4,12 @@
  * Vertical Tabs to switch between different content
  * found on some charts on the country pages where
  * there is a selection
+ * Usage:
+
+<ul class="wfp-verticaltabs">
+    <li class="wfp-verticaltabs__item">Text</li>
+    <li class="wfp-verticaltabs__item active">Text</li> //Currently selected Item
+</ul>
  */
 
 .wfp-verticaltabs {
@@ -17,7 +23,7 @@
     font-family: $sans-serif-stack;
 }
 
-.verticaltabs__item {
+.wfp-verticaltabs__item {
     direction:ltr; 
     min-height: 20px;
     position: relative;
