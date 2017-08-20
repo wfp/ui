@@ -3,6 +3,17 @@
  *
  * Horizontal Scroll Navigation
  * used as secondary Tab Navigation
+ * Usage:
+    <div class="wfp-secondarynav">
+        <ul class="wfp-secondarynav__wrapper"> // Add .wfp-wrapper--tight to fit it in the Wrapper
+          <li class="wfp-secondarynav__item">
+            <a class="active">active Link</a> // Active
+          </li>
+          <li class="wfp-secondarynav__item">
+            <a>Link</a>
+          </li>
+        </ul>
+      </div>
  */
 
 .wfp-secondarynav {
@@ -23,7 +34,7 @@
     }
 }
 
-.secondarynav__wrapper {
+.wfp-secondarynav__wrapper {
     list-style-type: none;
     position: relative;
     display: block;
@@ -31,11 +42,11 @@
     margin-top: 0;
 }
 
-.secondarynav__item {
+.wfp-secondarynav__item, .wfp-secondarynav li {
     display: block;
     margin: 0;
     float: left;
-    margin-left: -0.7rem; // Show only active Tab in Print
+    // Show only active Tab in Print
     @include print {
         margin-left: 0.1rem;
         margin-top: -2.2rem;

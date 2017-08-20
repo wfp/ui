@@ -23,7 +23,7 @@
     font-family: $sans-serif-stack;
 }
 
-.wfp-verticaltabs__item {
+.wfp-verticaltabs__item, .wfp-verticaltabs li {
     direction:ltr; 
     min-height: 20px;
     position: relative;
