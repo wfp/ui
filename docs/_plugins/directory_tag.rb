@@ -31,38 +31,37 @@ module Jekyll
   class DirectoryTag < Liquid::Block
     include Convertible
 
-    MATCHER = /^(.+\/)*(\d+-\d+-\d+)-(.*)(\.[^.]+)$/
+    STANDARD_POST_FILENAME_MATCHER = /^(.+\/)*(\d+-\d+-\d+)-(.*)(\.[^.]+)$/
 
-    attr_accessor :content, :data
+    def initialize(tag_name, markup, parse_context)
+      super
 
-    def initialize(tag_name, markup, tokens)
-      attributes = {}
+      @attributes = {}
 
-      # Parse parameters
       markup.scan(Liquid::TagAttributes) do |key, value|
-        attributes[key] = value
+        @attributes[key] = value
       end
 
-      @path     = attributes['path']   || '.'
-      @exclude  = Regexp.new(attributes['exclude'] || '.html$', Regexp::EXTENDED | Regexp::IGNORECASE)
-      @rev      = attributes['reverse'].nil?
-
-      super
+      @exclude = Regexp.new(@attributes['exclude'] || '.html$', Regexp::EXTENDED | Regexp::IGNORECASE)
+      @reverse = @attributes['reverse'].nil?
     end
 
     def render(context)
       context.registers[:directory] ||= Hash.new(0)
 
+      path = Liquid::VariableLookup.new(@attributes['path']).evaluate(context)
+      path ||= @attributes.fetch('path', '.')
+
       source_dir = context.registers[:site].source
-      listed_dir = File.expand_path(File.join(source_dir, @path))
-      
-      if !listed_dir.index(source_dir)
-        raise ArgumentError.new "Listed directory '#{listed_dir}' cannot be out of jekyll root"
+      listed_dir = File.expand_path(File.join(source_dir, path))
+
+      unless listed_dir.include?(source_dir)
+        raise Liquid::ArgumentError.new "Listed directory '#{listed_dir}' cannot be out of jekyll root"
       end
 
       directory_files = File.join(listed_dir, "*")
       files = Dir.glob(directory_files).reject{|f| f =~ @exclude }
-      files.sort! {|x,y| @rev ? x <=> y : y <=> x }
+      files.sort! {|x,y| @reverse ? x <=> y : y <=> x }
 
       length = files.length
       result = []
@@ -71,11 +70,10 @@ module Jekyll
         files.each_with_index do |filename, index|
           basename = File.basename(filename)
 
-          filepath  = [@path, basename] - ['.']
-          path = filepath.join '/'
+          filepath  = [path, basename] - ['.']
           url  = '/' + filepath.join('/')
 
-          m, cats, date, slug, ext = *basename.match(MATCHER)
+          m, cats, date, slug, ext = *basename.match(STANDARD_POST_FILENAME_MATCHER)
 
           if m
             date = Time.parse(date)
@@ -83,7 +81,7 @@ module Jekyll
             slug = slug
           else
             date = File.ctime(filename)
-            ext = basename[/\.[a-z]+$/, 0]
+            ext = File.extname(basename)
             slug = ext ? basename.sub(ext, '') : basename
           end
 
@@ -105,7 +103,13 @@ module Jekyll
             'last' => (index == length - 1)
           }
 
-          result << render_all(@nodelist, context)
+          result << nodelist.map{|n|
+            if n.respond_to? :render
+              n.render(context)
+            else
+              n
+            end
+          }.join("")
         end
       end
       result
@@ -116,4 +120,3 @@ module Jekyll
 end
 
 Liquid::Template.register_tag('directory', Jekyll::DirectoryTag)
-

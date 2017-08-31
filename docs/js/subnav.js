@@ -1,30 +1,10 @@
-/** !
- * WFP.org Subnavigation Handler
- * Copyright 2016 WFP/MADBIT Co.
- */
-/* global forEach */
-/**
- * Subnavigation Object
- * @constructor
- * @public
- * @class
- * @param {Element} element - element to attach this Object into
- * @param {Object} nav - initialised responsiveNav Object
- * @requires wfp-ui/js/lib/responsive-nav.js
- * @requires wfp-ui/js/tools.js
- */
 var Subnav = function(element, nav) {
   "use strict";
   var owner = this;
-  // $md-screen
   owner.lgScreen = window.matchMedia("(min-width: 1024px)");
-  // Submenu containers
   owner.containers = element.querySelectorAll(".menu--item");
-  // Group all event handlers
   owner._eventHandlers = {};
-  // Standard global timer
   owner._timer = 0;
-  // Reference responsiveNav Object
   owner._nav = nav;
   if (typeof element === "string") {
     owner.element = document.querySelector(element);
@@ -38,47 +18,27 @@ var Subnav = function(element, nav) {
 };
 
 Subnav.prototype = {
-  /**
-   * @constructs Subnav
-   */
   init: function() {
     "use strict";
     var owner = this;
-    // Rebuild bindings when going through intended breakpoint
     owner.lgScreen.addListener(function(MQListEvent) {
       owner._nav.close();
       owner.processEventBindings();
     });
-    // Initialise bindings
     owner.processEventBindings();
   },
-  /**
-   * Adds a new eventHandler and keeps track of its origin.
-   * @param {Element} node - node reference
-   * @param {String} event - event type
-   * @param {Function} handler - your event callback/handler
-   * @param {Boolean} capture - capture the event
-   */
   addNewListener: function(node, event, handler, capture) {
     "use strict";
     var owner = this;
     if (!(node in owner._eventHandlers)) {
-      // _eventHandlers stores references to nodes
       owner._eventHandlers[node] = {};
     }
     if (!(event in owner._eventHandlers[node])) {
-      // each entry contains another entry for each event type
       owner._eventHandlers[node][event] = [];
     }
-    // capture reference
     owner._eventHandlers[node][event].push([ handler, capture ]);
     node.addEventListener(event, handler, capture);
   },
-  /**
-   * Removes all eventHandlers for a particular node and event in a collection.
-   * @param {Element} node - node reference
-   * @param {String} event - event type
-   */
   removeAllListeners: function(node, event) {
     "use strict";
     var owner = this;
@@ -93,10 +53,6 @@ Subnav.prototype = {
       }
     }
   },
-  /**
-   * Loops through and hides all found submenus
-   * @param {Element} currentItem - a single submenu to ignore
-   */
   hideSubmenu: function(currentItem) {
     "use strict";
     var owner = this;
@@ -111,9 +67,6 @@ Subnav.prototype = {
       }
     });
   },
-  /**
-   * Process all required event bindings
-   */
   processEventBindings: function() {
     "use strict";
     var owner = this;

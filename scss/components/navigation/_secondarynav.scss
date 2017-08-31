@@ -21,6 +21,7 @@
     border-top: 1px solid $grey-lighter;
     position: relative;
     z-index: 10;
+    margin: 0;
     box-shadow: 0px 2px 1px rgba($blue, 0.1) !important;
     @include print {
         border-top: none;
@@ -56,9 +57,10 @@
             margin-left: 0;
         }
     }
-    a {
+    a, &.secondarynav__item__nolink {
         margin: 0;
         padding: 0 1.12rem;
+        cursor: pointer;
         @include media-query($md-screen) {
             padding: 0 1.9rem;
         }
