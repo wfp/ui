@@ -4,7 +4,7 @@
 }
 
 @mixin menu--item {
-  @include fs(5);
+  //@include fs(5);
   @include margin(0);
   @include padding(0);
   display: block;
@@ -107,7 +107,7 @@
 
 .wfp-menu {
   @include menu;
-  @include margin(1em 0);
+  @include margin(1rem 0);
   border-left: 1px solid $grey-lighter;
   border-right: 1px solid $grey-lighter;
   border-bottom: 1px solid $grey-lighter;
