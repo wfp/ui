@@ -22,7 +22,8 @@
     position: relative;
     z-index: 10;
     margin: 0;
-    box-shadow: 0px 2px 1px rgba($blue, 0.1) !important;
+    overflow: auto;
+        width: 100%;
     @include print {
         border-top: none;
         box-shadow: none !important;
@@ -41,12 +42,13 @@
     display: block;
     clear: both;
     margin-top: 0;
+    margin-bottom: 0;
+    white-space: nowrap;
 }
 
 .wfp-secondarynav__item, .wfp-secondarynav li {
-    display: block;
+    display: inline-block;
     margin: 0;
-    float: left;
     // Show only active Tab in Print
     @include print {
         margin-left: 0.1rem;
