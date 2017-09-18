@@ -4,7 +4,7 @@
 }
 
 @mixin menu--item {
-  @include fs(5);
+  //@include fs(5);
   @include margin(0);
   @include padding(0);
   display: block;

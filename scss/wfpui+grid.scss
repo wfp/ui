@@ -7,20 +7,4 @@
 // Import Grid
 @import "css/grid";
 // Import Core CSS
-@import "css-core";
-
-// Components
-@import "components/buttons";
-@import "components/forms";
-@import "components/tables";
-@import "components/navigation/menu";
-@import "components/navigation/submenu";
-@import "components/navigation/flyout";
-@import "components/navigation/segmented-control";
-@import "components/navigation/breadcrumbs";
-@import "components/navigation/pagination";
-@import "components/hero";
-
-// Import layouts
-@import "layouts/header";
-@import "layouts/footer";
+@import "wfpui.scss";

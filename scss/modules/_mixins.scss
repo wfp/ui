@@ -1,8 +1,21 @@
 // Module: Mixins
 // Project: WFPUI
 
+
 @mixin media-query($device) {
-  @media screen and (min-width: $device) {
+  @media (min-width: $device) {
     @content;
   }
+}
+
+@mixin media-max($size) {
+    @media (max-width: #{$size}) {
+        @content;
+    }
+}
+
+@mixin print() {
+    @media print {
+        @content;
+    }
 }

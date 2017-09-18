@@ -1,0 +1,115 @@
+/**
+ * Secondary Nav
+ *
+ * Horizontal Scroll Navigation
+ * used as secondary Tab Navigation
+ * Usage:
+    <div class="wfp-secondarynav">
+        <ul class="wfp-secondarynav__wrapper"> // Add .wfp-wrapper--tight to fit it in the Wrapper
+          <li class="wfp-secondarynav__item">
+            <a class="active">active Link</a> // Active
+          </li>
+          <li class="wfp-secondarynav__item">
+            <a>Link</a>
+          </li>
+        </ul>
+      </div>
+ */
+
+.wfp-secondarynav {
+    background: $white;
+    border-top: 1px solid $grey-lighter;
+    position: relative;
+    z-index: 10;
+    margin: 0;
+    overflow: auto;
+        width: 100%;
+    @include print {
+        border-top: none;
+        box-shadow: none !important;
+    }
+    &:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+    }
+}
+
+.wfp-secondarynav__wrapper {
+    list-style-type: none;
+    position: relative;
+    display: block;
+    clear: both;
+    margin-top: 0;
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
+.wfp-secondarynav__item, .wfp-secondarynav li {
+    display: inline-block;
+    margin: 0;
+    // Show only active Tab in Print
+    @include print {
+        margin-left: 0.1rem;
+        margin-top: -2.2rem;
+    }
+    &:first-child {
+        a {
+            margin-left: 0;
+        }
+    }
+    a, &.secondarynav__item__nolink {
+        margin: 0;
+        padding: 0 1.12rem;
+        cursor: pointer;
+        @include media-query($md-screen) {
+            padding: 0 1.9rem;
+        }
+        @include print {
+            display: none;
+        }
+        line-height: 3.4rem;
+        color: $grey;
+        display: block;
+        position: relative;
+        border-bottom: 0;
+        transition: none;
+        outline: none; // Underline
+        &:after {
+            content: "";
+            position: absolute;
+            left: 1rem;
+            right: 1rem;
+            bottom: 0;
+            height: 4px;
+            background: lighten($blue-lighter, 5);
+            opacity: 0;
+            transform: scaleX(0.8);
+            transition: all 0.2s;
+        } // Hover State
+        &:hover {
+            color: $primary;
+            &:after {
+                opacity: 1;
+                transform: scaleX(1);
+            }
+        } // Active State
+        &.active {
+            color: $primary;
+            @include print {
+                display: block;
+                padding: 0;
+                font-weight: bold;
+                &:after {
+                    display: none;
+                }
+            }
+            &:after {
+                opacity: 1;
+                transform: scaleX(1);
+                background: $primary;
+            }
+        }
+    }
+}
