@@ -37,5 +37,36 @@
         border-bottom-color: $white;
       }
     }
+  } // END li[class$='__item']
+
+  .wfp-form {
+    margin: 0;
+    position: relative;
+    input {
+      border-radius: 3px;
+      padding: .2em 2.2em .2em .5em;
+      color: $blue-darker;
+      box-shadow: none;
+      max-width: 9rem;
+      &::placeholder {
+        color: $grey;
+        font-style: italic;
+      }
+      &:focus::placeholder {
+        color: $white;
+      }
+    }
+    button {
+      position: absolute;
+      right: .1em;
+      top: 0;
+      height: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    [class^="icon"] {
+      margin-bottom: 0;
+    }
   }
 }
