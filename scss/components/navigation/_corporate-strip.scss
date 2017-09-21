@@ -1,0 +1,41 @@
+// ---------------------------------------------------------------------------
+// Component: Corporate Strip
+// ---------------------------------------------------------------------------
+
+%flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.wfp-corporatestrip {
+  display: none;
+  padding: .5rem 0;
+  background: $blue-darker;
+  @include media-query($md-screen) { display: block; }
+  @include print { display: none; }
+
+  .wfp-u-1 {
+    @extend %flex;
+  }
+
+  .wfp-corporatestrip__wrapper {
+    @extend %flex;
+    list-style-type: none;
+    margin: 0;
+  }
+
+  li[class$='__item'] {
+    margin: 0 .5rem;
+    font-size: $small-font-size;
+    a {
+      color: $white;
+      border-bottom-color: transparent;
+      &:hover,
+      &.active {
+        border-bottom-color: $white;
+      }
+    }
+  }
+}
