@@ -11,7 +11,7 @@
 
 .wfp-corporatestrip {
   display: none;
-  padding: .5rem 0;
+  padding: .3rem 0;
   background: $blue-darker;
   @include media-query($md-screen) { display: block; }
   @include print { display: none; }
@@ -26,7 +26,7 @@
     margin: 0;
   }
 
-  li[class$='__item'] {
+  .wfp-corporatestrip__item {
     margin: 0 .5rem;
     font-size: $small-font-size;
     a {
@@ -39,15 +39,17 @@
     }
   } // END li[class$='__item']
 
-  .wfp-form {
-    margin: 0;
+  .wfp-corporatestrip__form .wfp-form {
+    margin: 0 0 0 .5rem;
     position: relative;
     input {
       border-radius: 3px;
+      border: none;
       padding: .2em 2.2em .2em .5em;
       color: $blue-darker;
       box-shadow: none;
-      max-width: 9rem;
+      max-width: 11rem;
+      font-size: $small-font-size;
       &::placeholder {
         color: $grey;
         font-style: italic;

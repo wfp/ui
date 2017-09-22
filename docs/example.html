@@ -633,7 +633,7 @@
 
 <h2 class="section-title"><code>.wfp-corporatestrip .wfp-corporatestrip-search</code></h2>
 
-<div class="wfp-corporatestrip wfp-corporatestrip-search">
+<div class="wfp-corporatestrip">
   <div class="wfp-grid wfp-wrapper">
     <div class="wfp-u-1">
       <nav>
@@ -643,9 +643,9 @@
           <li class="wfp-corporatestrip__item"><a href="http://opweb.wfp.org" rel="noopener noreferrer" target="_blank">OPweb</a></li>
           <li class="wfp-corporatestrip__item"><a href="http://docustore.wfp.org" rel="noopener noreferrer" target="_blank">Docustore</a></li>
           <li class="wfp-corporatestrip__item"><a href="http://manuals.wfp.org/" rel="noopener noreferrer" target="_blank">WFP Manuals</a></li>
-          <li class="wfp-corporatestrip__item">
-            <form class="wfp-form">
-              <input type="text" placeholder="Find people">
+          <li class="wfp-corporatestrip__item wfp-corporatestrip__form" role="form">
+            <form action="http://gtd.wfp.org" method="get" class="wfp-form" target="_blank" aria-labelledby="gtd-search">
+              <input type="text" name="q" placeholder="Find people">
               <button type="submit">
                 <i class="icon-phone-dark xsmall"></i>
               </button>
