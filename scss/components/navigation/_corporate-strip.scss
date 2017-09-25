@@ -1,0 +1,74 @@
+// ---------------------------------------------------------------------------
+// Component: Corporate Strip
+// ---------------------------------------------------------------------------
+
+%flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.wfp-corporatestrip {
+  display: none;
+  padding: .3rem 0;
+  background: $blue-darker;
+  @include media-query($md-screen) { display: block; }
+  @include print { display: none; }
+
+  .wfp-u-1 {
+    @extend %flex;
+  }
+
+  .wfp-corporatestrip__wrapper {
+    @extend %flex;
+    list-style-type: none;
+    margin: 0;
+  }
+
+  .wfp-corporatestrip__item {
+    margin: 0 .5rem;
+    font-size: $small-font-size;
+    a {
+      color: $white;
+      border-bottom-color: transparent;
+      &:hover,
+      &.active {
+        border-bottom-color: $white;
+      }
+    }
+  } // END li[class$='__item']
+
+  .wfp-corporatestrip__form .wfp-form {
+    margin: 0 0 0 .5rem;
+    position: relative;
+    input {
+      border-radius: 3px;
+      border: none;
+      padding: .2em 2.2em .2em .5em;
+      color: $blue-darker;
+      box-shadow: none;
+      max-width: 11rem;
+      font-size: $small-font-size;
+      &::placeholder {
+        color: $grey;
+        font-style: italic;
+      }
+      &:focus::placeholder {
+        color: $white;
+      }
+    }
+    button {
+      position: absolute;
+      right: .1em;
+      top: 0;
+      height: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    [class^="icon"] {
+      margin-bottom: 0;
+    }
+  }
+}
