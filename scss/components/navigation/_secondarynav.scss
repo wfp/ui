@@ -61,6 +61,9 @@
             margin-left: 0;
         }
     }
+    a {
+       display: block;
+    }
     a, &.secondarynav__item__nolink {
         margin: 0;
         padding: 0 1.12rem;
@@ -73,7 +76,6 @@
         }
         line-height: 3.4rem;
         color: $grey;
-        display: block;
         position: relative;
         border-bottom: 0;
         transition: none;
