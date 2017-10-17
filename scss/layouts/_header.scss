@@ -264,7 +264,7 @@
     padding: 1rem;
     line-height: 1.2;
 
-    &:not(:only-child)::after {
+    /*&:not(:only-child)::after {
       @extend %icon-light-arrow-drop-down;
       display: inline-block;
       height: 1.5rem;
@@ -274,19 +274,19 @@
       margin-top: -0.125rem;
       float: right;
 
-      @include media-query($lg-screen) {
+      @include media-query($md-screen) {
         content: none;
         display: none;
       }
-    }
+    }*/
 
-    @include media-query($lg-screen) {
+    @include media-query($md-screen) {
       background-color: transparent;
       border-bottom-color: transparent;
     }
   }
 
-  @include media-query($lg-screen) {
+  @include media-query($md-screen) {
     @include menu-flat;
     @include margin(0.33rem 0);
     background-color: transparent;

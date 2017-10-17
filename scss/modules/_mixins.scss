@@ -3,7 +3,7 @@
 
 
 @mixin media-query($device) {
-  @media (min-width: $device) {
+  @media (min-width: $device*1.0001) {
     @content;
   }
 }
