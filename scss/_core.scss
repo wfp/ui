@@ -2,7 +2,7 @@
 // Project: WFP UI
 
 // Dependencies
-@import "math";
+//@import "../node_modules/mathsass/dist/math";
 
 
 // Variables
@@ -12,6 +12,7 @@
 @import "modules/mixins";
 @import "modules/flexbox";
 @import "modules/icons";
+@import "modules/functions";
 @import "modules/utility";
 @import "modules/grid";
 

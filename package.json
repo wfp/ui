@@ -26,11 +26,6 @@
   "bugs": {
     "url": "https://github.com/wfp/ui/issues"
   },
-  "dependencies": {
-    "mathsass": "^0.10.0",
-    "mkdirp": "^0.5.1",
-    "strip-ansi": "^2.0.1"
-  },
   "devDependencies": {
     "autoprefixer": "^7.1.6",
     "bower": "^1.7.10",

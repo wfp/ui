@@ -24,10 +24,10 @@
     margin: 0;
     overflow: auto;
     width: 100%;
-    box-shadow: 0px 1.5px 1px rgba($blue, 0.12) !important;
+    box-shadow: 0px 1.5px 1px rgba($blue, 0.12);
     @include print {
         border-top: none;
-        box-shadow: none !important;
+        box-shadow: none;
     }
     &:after {
         content: "";
