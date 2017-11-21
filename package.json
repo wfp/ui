@@ -4,7 +4,8 @@
   "description": "WFP UI Kit",
   "main": "dist/wfpui.css",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "NODE_ENV=production webpack -p --progress --profile --colors",
+    "watch": "webpack-dev-server --hot --inline --progress --colors --watch-poll"
   },
   "repository": {
     "type": "git",
@@ -26,11 +27,11 @@
     "url": "https://github.com/wfp/ui/issues"
   },
   "dependencies": {
+    "mathsass": "^0.10.1",
     "mkdirp": "^0.5.1",
-    "strip-ansi": "^2.0.1",
-    "mathsass": "^0.10.1"
+    "strip-ansi": "^2.0.1"
   },
-   "devDependencies": {
+  "devDependencies": {
     "autoprefixer": "^7.1.6",
     "bower": "^1.7.10",
     "cssnano": "^3.10.0",
@@ -57,9 +58,5 @@
     "postcss-scss": "^1.0.2",
     "postcss-wcag-contrast": "^2.0.0",
     "time-grunt": "^1.0.0"
-  },
-  "scripts": {
-    "build": "NODE_ENV=production webpack -p --progress --profile --colors",
-    "watch": "webpack-dev-server --hot --inline --progress --colors --watch-poll"
   }
 }
