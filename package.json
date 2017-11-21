@@ -1,33 +1,65 @@
 {
   "name": "wfp-ui",
-  "version": "0.0.91",
-  "description": "Spits out some stats about webpack compilation process to a file",
-  "main": "index.js",
+  "version": "0.17",
+  "description": "WFP UI Kit",
+  "main": "dist/wfpui.css",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/owais/webpack-bundle-tracker.git"
+    "url": "https://github.com/wfp/ui.git"
   },
   "keywords": [
-    "webpack",
-    "bundle",
-    "stats",
-    "files"
+    "ui",
+    "scss",
+    "wfp"
   ],
-  "author": "Owais Lone",
+  "author": "WFP ORG",
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/brentertz/scapegoat/blob/master/LICENSE-MIT"
+      "url": "https://github.com/wfp/ui/blob/master/LICENSE-MIT"
     }
   ],
   "bugs": {
-    "url": "https://github.com/owais/webpack-bundle-tracker/issues"
+    "url": "https://github.com/wfp/ui/issues"
   },
   "dependencies": {
     "mkdirp": "^0.5.1",
-    "strip-ansi": "^2.0.1"
+    "strip-ansi": "^2.0.1",
+    "mathsass": "^0.10.1"
+  },
+   "devDependencies": {
+    "autoprefixer": "^7.1.6",
+    "bower": "^1.7.10",
+    "cssnano": "^3.10.0",
+    "eslint": "~2.1.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "grunt": "~0.4.5",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-uglify": "^3.1.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-datauri": "^0.4.0",
+    "grunt-eslint": "^20.1.0",
+    "grunt-grunticon": "^2.3.2",
+    "grunt-html-auditor": "^1.1.1",
+    "grunt-jekyll": "^0.4.6",
+    "grunt-postcss": "^0.8.0",
+    "grunt-pure-grids": "^1.0.2",
+    "grunt-sass": "^2.0.0",
+    "grunt-sass-lint": "^0.2.4",
+    "grunt-svg-colorify": "^0.1.1",
+    "html-auditor": "~0.15.0",
+    "pixrem": "^4.0.1",
+    "postcss": "^6.0.14",
+    "postcss-scss": "^1.0.2",
+    "postcss-wcag-contrast": "^2.0.0",
+    "time-grunt": "^1.0.0"
+  },
+  "scripts": {
+    "build": "NODE_ENV=production webpack -p --progress --profile --colors",
+    "watch": "webpack-dev-server --hot --inline --progress --colors --watch-poll"
   }
 }
