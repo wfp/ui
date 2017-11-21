@@ -9,7 +9,7 @@
   "private": true,
   "dependencies": {
       "mathsass": "^0.10.1"
-  }
+  },
   "devDependencies": {
     "autoprefixer": "^7.1.6",
     "bower": "^1.7.10",
