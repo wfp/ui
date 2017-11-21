@@ -4,9 +4,8 @@
   "main": "dist/wfpui.css",
   "author": "WFP COM",
   "license": "MIT",
-  "version": "0.15.0",
+  "version": "0.17.0",
   "man": "readme.md",
-  "private": true,
   "dependencies": {
       "mathsass": "^0.10.1"
   },
