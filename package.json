@@ -7,7 +7,7 @@
   "version": "0.17.0",
   "man": "readme.md",
   "dependencies": {
-      "mathsass": "^0.10.1"
+    "mathsass": "^0.10.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.6",
