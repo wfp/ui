@@ -6,6 +6,14 @@
   "license": "MIT",
   "version": "0.17.0",
   "man": "readme.md",
+  "keywords": [
+    "webpack",
+    "ui",
+    "wfp"
+  ],
+  "bugs": {
+    "url": "https://github.com/wfp/ui/issues"
+  },
   "dependencies": {
     "mathsass": "^0.10.1"
   },
