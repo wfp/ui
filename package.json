@@ -27,7 +27,7 @@
     "url": "https://github.com/wfp/ui/issues"
   },
   "dependencies": {
-    "mathsass": "^0.10.1",
+    "mathsass": "^0.10.0",
     "mkdirp": "^0.5.1",
     "strip-ansi": "^2.0.1"
   },
