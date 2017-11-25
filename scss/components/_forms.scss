@@ -44,6 +44,8 @@
 
   & + label {
     display: inline-block;
+    margin-left: 0.5em;
+    vertical-align: middle;
   }
 }
 
@@ -359,4 +361,18 @@
   font-style: italic;
   color: $grey-darker;
   vertical-align: baseline;
+}
+
+.required {
+  label {
+    &:after {
+      margin-left: 0.1em;
+      display: inline-block;
+      font-size: 1.5em;
+      color: $red;
+      margin-top: -0.2em;
+      margin-bottom: -0.2em;
+      vertical-align: sub;
+    }
+  }
 }

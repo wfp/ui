@@ -19,3 +19,12 @@
         @content;
     }
 }
+
+/* Highlight values and Text in continuous text */
+
+.highlight {
+    color: $primary;
+    font-weight: bold;
+}
+
+$main-shadow: 0px 0px 0.5px rgba($blue, 0.5), 1px 3px 3px rgba($blue, 0.1);

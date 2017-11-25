@@ -91,7 +91,7 @@ module.exports = function(grunt) {
         processors: [
           require('autoprefixer')({ browsers: ['last 3 version', 'ff >= 22', 'ie >= 11', 'Chrome >= 28', 'Safari >= 6'] }),
           require('pixrem')(),
-          require('postcss-wcag-contrast')()
+          //require('postcss-wcag-contrast')()
         ],
         map: {
           inline: false,
@@ -102,7 +102,7 @@ module.exports = function(grunt) {
           processors: [
             require('autoprefixer')({ browsers: ['last 3 version', 'ff >= 22', 'ie >= 11', 'Chrome >= 28', 'Safari >= 6'] }),
             require('pixrem')(),
-            require('postcss-wcag-contrast')(),
+            //require('postcss-wcag-contrast')(),
             require('cssnano')()
           ],
           map: false

@@ -1,0 +1,88 @@
+
+/* Heading Wrap
+Used when there is a Title with a Heading
+and an Input field */
+
+.headingwrap {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    &.headingwrap--left {
+        justify-content: flex-start;
+    }
+    &.headingwrap--nomargin {
+        margin-bottom: 0;
+    }
+    align-items: center;
+    margin-bottom: 1em;
+    @include media-query( $md-screen) {
+        flex-wrap: nowrap;
+        margin-bottom: 2em;
+    }
+    margin-top: 0;
+    .h3 {
+        margin: 0.3em 0;
+        flex-shrink: 1;
+        line-height: 3em;
+        padding-right: 0.2em;
+    }
+    >select,
+    .headingwrap__right {
+        font-size: 0.95em !important;
+        text-align: right;
+        max-width: 100%;
+        flex-basis: 100%;
+        flex-grow: 2;
+        a {
+            margin-left: 1rem;
+        }
+        @include media-query( $md-screen) {
+            max-width: 55%;
+            flex-basis: 45%;
+        }
+    }
+    .headingwrap__center {
+        flex-grow: 2;
+        @include media-query( $md-screen) {
+            text-align: right;
+            margin-right: 2rem; 
+        }
+    }
+    .headingwrap__centerleft {
+        text-align: left;
+        flex-grow: 1;
+        text-align: center;
+        @include media-query( $md-screen) {
+            margin-left: 2rem;
+            margin-right: 2rem;
+            >div {
+                min-width: 200px;
+                width: 25%;
+            }
+        }
+    }
+    .headingwrap__right {
+        position: relative;
+        @include print {
+            display: none;
+        }
+        @include media-query( $md-screen) {
+            max-width: 35%;
+            flex-basis: 35%;
+        }
+    }
+    .headingwrap__right--wide {
+        @include media-query( $md-screen) {
+            max-width: inherit;
+            flex-basis: 35%;
+            flex-grow: 1;
+        }
+    }
+    .headingwrap__right--wider {
+        @include media-query( $md-screen) {
+            max-width: inherit;
+            flex-basis: 45%;
+            flex-grow: 1;
+        }
+    }
+}
