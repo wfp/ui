@@ -370,6 +370,8 @@
       display: inline-block;
       font-size: 1.5em;
       color: $red;
+      content: "*";
+      font-weight: bold;
       margin-top: -0.2em;
       margin-bottom: -0.2em;
       vertical-align: sub;
