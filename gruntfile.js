@@ -46,6 +46,9 @@ module.exports = function(grunt) {
         cssDir: 'dist/css',
         includePaths: [
           'node_modules/mathsass/dist'
+        ],
+        includePaths: [
+          'node_modules'
         ]
       },
       dev: {

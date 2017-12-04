@@ -84,7 +84,7 @@
     }
 
     &:required:invalid,
-    &.invalid {
+    &.invalid, .invalid & {
       margin-bottom: -1px;
       border-color: $orange;
 
@@ -92,6 +92,7 @@
         border-radius: 0 0 2px 2px;
       }
     }
+    
 
     &.valid {
       border-color: desaturate(lighten($green, 25%), 55%);
@@ -347,11 +348,13 @@
 }
 
 .wfp-form--group {
-  padding: 0.25em 0;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
 }
 
 .wfp-form--actions {
-  padding: 0.5em 0;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
 }
 
 .wfp-form--msg {
