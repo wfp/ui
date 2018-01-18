@@ -26,6 +26,12 @@
   margin: 0 0.1rem;
   text-decoration: none;
 
+  &.disabled {
+    .pagination--btn {
+      cursor: not-allowed;
+    }
+  }
+
   &.ellipsis {
     border: 0;
     cursor: default;
@@ -53,6 +59,7 @@
   display: block;
   width: auto;
   border: 0;
+  cursor: pointer;
   color: darken($primary, 12%);
 }
 
