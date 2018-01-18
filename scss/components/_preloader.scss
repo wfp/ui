@@ -1,6 +1,7 @@
  /* Preloader
  *
  * simple preloader used inline
+ * White on dark background: <div class="wfp-spinner wfp-spinner--light" />
  * Usage:
     <div class="wfp-spinner">
       <div class="wfp-spinner__bounce1"></div>
@@ -23,6 +24,10 @@
   border-radius: 100%;
   display: inline-block;
   animation: wfp-spinner-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.wfp-spinner--light > div {
+  background-color: $white;
 }
 
 .wfp-spinner .wfp-spinner__bounce1 {
