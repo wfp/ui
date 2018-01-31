@@ -1,0 +1,80 @@
+/*
+  Aleo Family
+*/
+@font-face {
+  font-family: 'lato';
+  src: url('lato-blackitalic.eot');
+  src: url('lato-blackitalic.eot?#iefix') format('embedded-opentype'),
+       url('lato-blackitalic.woff2') format('woff2'),
+       url('lato-blackitalic.woff') format('woff'),
+       url('lato-blackitalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+  font-family: 'lato';
+  src: url('lato-black.eot');
+  src: url('lato-black.eot?#iefix') format('embedded-opentype'),
+       url('lato-black.woff2') format('woff2'),
+       url('lato-black.woff') format('woff'),
+       url('lato-black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+  font-family: 'lato';
+  src: url('lato-bold.eot');
+  src: url('lato-bold.eot?#iefix') format('embedded-opentype'),
+       url('lato-bold.woff2') format('woff2'),
+       url('lato-bold.woff') format('woff'),
+       url('lato-bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+  font-family: 'lato';
+  src: url('lato-bolditalic.eot');
+  src: url('lato-bolditalic.eot?#iefix') format('embedded-opentype'),
+       url('lato-bolditalic.woff2') format('woff2'),
+       url('lato-bolditalic.woff') format('woff'),
+       url('lato-bolditalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+  font-family: 'lato';
+  src: url('lato-regular.eot');
+  src: url('lato-regular.eot?#iefix') format('embedded-opentype'),
+       url('lato-regular.woff2') format('woff2'),
+       url('lato-regular.woff') format('woff'),
+       url('lato-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+  font-family: 'lato';
+  src: url('lato-italic.eot');
+  src: url('lato-italic.eot?#iefix') format('embedded-opentype'),
+       url('lato-italic.woff2') format('woff2'),
+       url('lato-italic.woff') format('woff'),
+       url('lato-italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}

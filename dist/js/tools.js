@@ -1,1 +1,0 @@
-var forEach=function(array,callback,scope){"use strict";for(var i=0;i<array.length;i++)callback.call(scope,i,array[i])},bindEvent=function(element,type,handler){"use strict";element.addEventListener?element.addEventListener(type,handler,!1):element.attachEvent("on"+type,handler)};

@@ -6,7 +6,7 @@ url: "https://cdn.wfp.org" # WFP CDN
 version: "v0.15.0"
 quiet: true
 
-exclude: ["*.sublime-*", "*.sh", "*.yml", "*.DS_*"]
+exclude: ["*.sublime-*", "*.sh", "*.yml", "*.DS_*", "node_modules"]
 
 # Build settings
 markdown: kramdown

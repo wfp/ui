@@ -4,8 +4,11 @@
   "description": "WFP UI Kit",
   "main": "dist/wfpui.css",
   "scripts": {
-    "build": "NODE_ENV=production webpack -p --progress --profile --colors",
-    "watch": "webpack-dev-server --hot --inline --progress --colors --watch-poll"
+    "build": "NODE_ENV=production webpack --config webpack.prod.js && rimraf ./dist/css/*.css",
+    "watch": "webpack-dev-server --hot --inline --progress --colors --watch-poll",
+    "css:build": "node-sass ./scss/ -o ./dist/css --output-style compressed --source-map true",
+    "doc:build": "jekyll build --source ./docs --config ./docs/_config.yml --destination ./dist/docs",
+    "doc:watch": "jekyll build --source ./docs --config ./docs/_config.yml --destination ./dist/docs --watch"
   },
   "repository": {
     "type": "git",
@@ -27,11 +30,17 @@
     "url": "https://github.com/wfp/ui/issues"
   },
   "dependencies": {
+    "file-loader": "^1.1.6",
     "flexboxgrid": "^6.3.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.6",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "bootstrap-sass": "^3.3.7",
     "bower": "^1.7.10",
+    "copy-webpack-plugin": "^4.3.1",
+    "css-loader": "^0.28.9",
     "cssnano": "^3.10.0",
     "eslint": "~2.1.0",
     "extract-text-webpack-plugin": "^3.0.2",
@@ -42,7 +51,6 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-datauri": "^0.4.0",
     "grunt-eslint": "^20.1.0",
-    "grunt-grunticon": "^2.3.2",
     "grunt-html-auditor": "^1.1.1",
     "grunt-jekyll": "^0.4.6",
     "grunt-postcss": "^0.8.0",
@@ -51,10 +59,16 @@
     "grunt-sass-lint": "^0.2.4",
     "grunt-svg-colorify": "^0.1.1",
     "html-auditor": "~0.15.0",
+    "imagemin-webpack-plugin": "^2.0.0",
     "pixrem": "^4.0.1",
     "postcss": "^6.0.14",
+    "postcss-loader": "^2.0.10",
     "postcss-scss": "^1.0.2",
     "postcss-wcag-contrast": "^2.0.0",
-    "time-grunt": "^1.0.0"
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.1",
+    "time-grunt": "^1.0.0",
+    "webpack": "^3.10.0",
+    "webpack-merge": "^4.1.1"
   }
 }
