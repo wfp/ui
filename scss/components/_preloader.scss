@@ -3,47 +3,80 @@
  * simple preloader used inline
  * White on dark background: <div class="wfp-spinner wfp-spinner--light" />
  * Usage:
-    <div class="wfp-spinner">
-      <div class="wfp-spinner__bounce1"></div>
-      <div class="wfp-spinner__bounce2"></div>
-      <div class="wfp-spinner__bounce3"></div>
+    <div class="wfp-spinner__wrapper">
+      <div class="wfp-spinner">
+        <div class="wfp-spinner__element"></div>
+      </div>
     </div>
  */
 
+ .wfp-spinner__wrapper {
+  position: relative;
+ }
+
 
 .wfp-spinner {
-  margin: 100px auto 0;
-  width: 70px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba($white, 0.8);
+}
+
+.wfp-spinner__element {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -28px;
+  .wfp-spinner--with-text & {
+    margin-top: -40px;
+  }
+  margin-left: -125px;
+  width: 250px;
+}
+
+.wfp-spinner__element__rotation,
+.wfp-spinner__element__rotation:after {
+  border-radius: 50%;
+  width: 5em;
+  height: 5em;
+}
+
+.wfp-spinner__element__rotation {
+  margin: auto;
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 0.5em solid rgba($black, 0.2);
+  border-right: 0.5em solid rgba($black, 0.2);
+  border-bottom: 0.5em solid rgba($black, 0.2);
+  border-left: 0.5em solid $black;
+  transform: translateZ(0);
+  animation: load 0.8s infinite linear;
+}
+
+
+@keyframes load {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.wfp-spinner__text {
+  display: block;
   text-align: center;
+  margin-top: 0.5em;
 }
 
-.wfp-spinner > div {
-  width: 18px;
-  height: 18px;
-  background-color: $grey-darker;
-  border-radius: 100%;
-  display: inline-block;
-  animation: wfp-spinner-bouncedelay 1.4s infinite ease-in-out both;
-}
-
-.wfp-spinner--light > div {
-  background-color: $white;
-}
-
-.wfp-spinner .wfp-spinner__bounce1 {
-  animation-delay: -0.32s;
-}
-
-.wfp-spinner .wfp-spinner__bounce3 {
-  animation-delay: -0.16s;
-}
-
-@keyframes wfp-spinner-bouncedelay {
-  0%, 80%, 100% { 
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  } 40% { 
-    -webkit-transform: scale(1.0);
-    transform: scale(1.0);
+.wfp-spinner--light {
+  .wfp-spinner__element__rotation {
+    border-top: 1.1em solid rgba($white, 0.2);
+    border-right: 1.1em solid rgba($white, 0.2);
+    border-bottom: 1.1em solid rgba($white, 0.2);
+    border-left: 1.1em solid $white;
   }
 }
