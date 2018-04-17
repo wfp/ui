@@ -238,7 +238,7 @@
   order: 1;
 }
 
-@media (--sm-viewport) {
+@include media-query($sm-screen) {
   .container {
     width: var(--container-sm, 46rem);
   }
@@ -433,7 +433,7 @@
   }
 }
 
-@media (--md-viewport) {
+@include media-query($md-screen) {
   .container {
     width: var(--container-md, 61rem);
   }
@@ -628,7 +628,7 @@
   }
 }
 
-@media (--lg-viewport) {
+@include media-query($lg-screen) {
   .container {
     width: var(--container-lg, 71rem);
   }
@@ -822,4 +822,3 @@
     order: 1;
   }
 }
-

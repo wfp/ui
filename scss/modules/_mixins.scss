@@ -2,8 +2,8 @@
 // Project: WFPUI
 
 
-@mixin media-query($device) {
-  @media (min-width: $device*1.0001) {
+@mixin media-query($size) {
+  @media (min-width: #{$size}+1) {
     @content;
   }
 }
