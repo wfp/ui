@@ -10,8 +10,8 @@ $small-font-size:     $base-font-size * 0.875; // 14px
 
 $spacing-unit:        0.25rem;
 
-$primary:             #2a93fc;
-$accent:              #1f6ebc;
+$primary:             #0F58A5;
+$accent:              #174E89;
 
 // Greys gradation
 $grey:                #8c8c8c;
@@ -27,9 +27,9 @@ $blue:                lighten($primary, 9%);
 $blue-darkest:        darken($blue, 36%);
 $blue-darker:         darken($blue, 18%);
 $blue-dark:           darken($blue, 9%);
-$blue-light:          lighten($blue, 9%);
-$blue-lighter:        lighten($blue, 18%);
-$blue-lightest:       lighten($blue, 30%);
+$blue-light:          lighten($blue, 25%);
+$blue-lighter:        lighten($blue, 38%);
+$blue-lightest:       lighten($blue, 52%);
 
 $brand:               darken($primary, 12%);
 
