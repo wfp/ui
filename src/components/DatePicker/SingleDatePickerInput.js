@@ -35,7 +35,6 @@ export class SingleDatePickerInput extends PureComponent {
       helperText,
       active,
       value,
-      name,
       onFocus,
       onBlur,
       onDragStart,
@@ -65,10 +64,11 @@ export class SingleDatePickerInput extends PureComponent {
     ) : null;
 
     return (
-      <div className="wfp--form-item">
+      <div className={className}>
         {label}
         {helper}
         <SingleDatePicker
+          id={id}
           date={onChange && value ? value : controlledValue}
           focused={focused}
           hideKeyboardShortcutsPanel
@@ -94,6 +94,8 @@ SingleDatePickerInput.defaultProps = {
   onFocus: () => {},
   onBlur: () => {},
   onChange: () => {},
+
+  className: "wfp--form-item"
 };
 
 SingleDatePickerInput.propTypes = {
