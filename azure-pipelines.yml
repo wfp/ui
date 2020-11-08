@@ -4,39 +4,62 @@ trigger:
   - hotfix/*
   - bugfix/*
 
-pool:
-  vmImage: 'ubuntu-latest'
 
-variables:
-  NPM_CACHE_FOLDER: $(Pipeline.Workspace)/.npm
 
-steps:
-  - task: NodeTool@0
-    inputs:
-      versionSpec: '10.x'
-    displayName: 'Install Node.js'
+jobs:
+- job: SemanticRelease
+  pool:
+    vmImage: 'ubuntu-latest'
 
-  - task: Cache@2
-    inputs:
-      key: 'npm | "$(Agent.OS)" | package-lock.json'
-      path: "$(NPM_CACHE_FOLDER)"
-      restoreKeys: |
-        npm | "$(Agent.OS)"
-        npm
-    displayName: 'Cache NPM packages'
+  variables:
+    NPM_CACHE_FOLDER: $(Pipeline.Workspace)/.npm
 
-  - script: |
-      mkdir -p $(NPM_CACHE_FOLDER)
-      npm ci
-    displayName: 'npm install'
+  steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '10.x'
+      displayName: 'Install Node.js'
 
-  - script: |
-      npm run build
-    displayName: 'npm run build'
+    - task: Cache@2
+      inputs:
+        key: 'npm | "$(Agent.OS)" | package-lock.json'
+        path: "$(NPM_CACHE_FOLDER)"
+        restoreKeys: |
+          npm | "$(Agent.OS)"
+          npm
+      displayName: 'Cache NPM packages'
 
-  - script: |
-      npm run semantic-release
-    displayName: 'npm run semantic-release'
+    - script: |
+        mkdir -p $(NPM_CACHE_FOLDER)
+        npm ci
+      displayName: 'npm install'
+
+    - script: |
+        npm run build
+      displayName: 'npm run build'
+
+    - script: >
+        npx -p semantic-release
+        -p @semantic-release/git
+        -p semantic-release-ado
+        semantic-release
+      env: { GH_TOKEN: $(GitHubToken) }
+      displayName: 'Semantic release'
+
+    - powershell: |
+        echo "##vso[task.setvariable variable=versionNumber;isOutput=true]$(nextRelease)"
+      name: setOutputVar
+
+- job: Documentation
+  dependsOn: SemanticRelease
+  pool:
+    vmImage: 'ubuntu-latest'
+  variables:
+    versionNumber: $[ dependencies.SemanticRelease.outputs['setOutputVar.versionNumber'] ]
+
+  steps:
+  - script: echo $(versionNumber)
+    displayName: 'Show next version'
 
   - script: |
       npm run build:storybook
@@ -46,6 +69,12 @@ steps:
     inputs:
       targetPath: "./docs"
       artifact: "wfp-ui-kit-build"
+      publishLocation: "pipeline"
+
+  - task: PublishPipelineArtifact@1
+    inputs:
+      targetPath: "./assets"
+      artifact: "wfp-ui-kit-assets"
       publishLocation: "pipeline"
 
 #  - task: ArchiveFiles@2
