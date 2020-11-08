@@ -3,13 +3,12 @@ trigger:
   - next
   - hotfix/*
   - bugfix/*
-
-
+  - feature/*
 
 jobs:
 - job: SemanticRelease
   pool:
-    vmImage: 'ubuntu-latest'
+    vmImage: 'vs2017-win2016'
 
   variables:
     NPM_CACHE_FOLDER: $(Pipeline.Workspace)/.npm
