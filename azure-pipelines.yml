@@ -11,10 +11,6 @@ jobs:
   pool:
     vmImage: 'ubuntu-latest'
 
-  plugins:
-  - - "semantic-release-ado"
-    - setOnlyOnRelease: false
-
   variables:
     NPM_CACHE_FOLDER: $(Pipeline.Workspace)/.npm
 
