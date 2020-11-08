@@ -3,7 +3,7 @@ trigger:
   - next
   - hotfix/*
   - bugfix/*
-  - feature/*
+  - feat/*
 
 jobs:
 - job: SemanticRelease
