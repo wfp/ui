@@ -3,128 +3,34 @@ trigger:
   - next
   - hotfix/*
   - bugfix/*
-
-
+  - feat/*
 
 jobs:
-- job: SemanticRelease
+- job: Job1
   pool:
-    vmImage: 'ubuntu-latest'
-
-  variables:
-    NPM_CACHE_FOLDER: $(Pipeline.Workspace)/.npm
+    vmImage: 'vs2017-win2016'
 
   steps:
-    - task: NodeTool@0
-      inputs:
-        versionSpec: '10.x'
-      displayName: 'Install Node.js'
+  - script: >
+      npx -p semantic-release
+      -p @semantic-release/git
+      -p semantic-release-ado
+      -p @semantic-release/changelog
+      semantic-release
+    env: { GH_TOKEN: $(GitHubToken) }
+    displayName: 'Semantic release'
 
-    - task: Cache@2
-      inputs:
-        key: 'npm | "$(Agent.OS)" | package-lock.json'
-        path: "$(NPM_CACHE_FOLDER)"
-        restoreKeys: |
-          npm | "$(Agent.OS)"
-          npm
-      displayName: 'Cache NPM packages'
+  - powershell: |
+      echo "##vso[task.setvariable variable=versionNumber;isOutput=true]$(nextRelease)"
+    name: setOutputVar
 
-    - script: |
-        mkdir -p $(NPM_CACHE_FOLDER)
-        npm ci
-      displayName: 'npm install'
-
-    - script: |
-        npm run build
-      displayName: 'npm run build'
-
-    - script: >
-        npx -p semantic-release
-        -p @semantic-release/git
-        -p semantic-release-ado
-        semantic-release
-      env: { GH_TOKEN: $(GitHubToken) }
-      displayName: 'Semantic release'
-
-    - powershell: |
-        echo "##vso[task.setvariable variable=versionNumber;isOutput=true]$(nextRelease)"
-      name: setOutputVar
-
-- job: Documentation
-  dependsOn: SemanticRelease
+- job: Job2
+  dependsOn: Job1
   pool:
-    vmImage: 'ubuntu-latest'
+    vmImage: 'vs2017-win2016'
   variables:
-    versionNumber: $[ dependencies.SemanticRelease.outputs['setOutputVar.versionNumber'] ]
+    versionNumber: $[ dependencies.Job1.outputs['setOutputVar.versionNumber'] ]
 
   steps:
   - script: echo $(versionNumber)
     displayName: 'Show next version'
-
-  - script: |
-      npm run build:storybook
-    displayName: 'npm run build:storybook'
-
-  - task: PublishPipelineArtifact@1
-    inputs:
-      targetPath: "./docs"
-      artifact: "wfp-ui-kit-build"
-      publishLocation: "pipeline"
-
-  - task: PublishPipelineArtifact@1
-    inputs:
-      targetPath: "./assets"
-      artifact: "wfp-ui-kit-assets"
-      publishLocation: "pipeline"
-
-#  - task: ArchiveFiles@2
-#    condition: or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), startsWith(variables['Build.SourceBranch'], 'refs/heads/next'))
-#    inputs:
-#     rootFolderOrFile: "$(System.DefaultWorkingDirectory)/docs"
-#      includeRootFolder: true
-#      archiveType: "zip"
-#      archiveFile: "$(Build.ArtifactStagingDirectory)/build-$(Build.BuildId).zip"
-#      replaceExistingArchive: true
-
-#  - task: PublishBuildArtifacts@1
-#    inputs:
-#      PathtoPublish: "$(Build.ArtifactStagingDirectory)"
-#      ArtifactName: "wfp-ui-kit-build"
-#      publishLocation: "Container"
-
-#  - task: Bash@3
-#    inputs:
-#      targetType: 'inline'
-#      script: |
-#        PACKAGE_VERSION=$(sed -nE 's/^\s*"version": "(.*?)",$/\1/p' package.json)
-#        echo "Package version"
-#        echo $PACKAGE_VERSION
-#        NPM_VERSION=${PACKAGE_VERSION//./-}
-#        echo $NPM_VERSION
-#        echo '##vso[task.setvariable variable=NPM_VAR]'$NPM_VERSION' 
-
-#  - task: S3Upload@1
-#    inputs:
-#      awsCredentials: 'WFP UI-Kit'
-#      regionName: 'eu-west-1'
-#      bucketName: 'uikit.wfp.org'
-#      sourceFolder: './dist'
-#      globExpressions: '**'
-#      targetFolder: 'cdn/$(NPM_VAR)'
-#      filesAcl: 'public-read'
-#      createBucket: true
-#      logRequest: true
-#      logResponse: true
-
-#  - task: S3Upload@1
-#    inputs:
-#      awsCredentials: 'WFP UI-Kit'
-#      regionName: 'eu-west-1'
-#      bucketName: 'uikit.wfp.org'
-#      sourceFolder: './docs'
-#      globExpressions: '**'
-#      targetFolder: 'next-docs'
-#      filesAcl: 'public-read'
-#      createBucket: true
-#      logRequest: true
-#      logResponse: true
