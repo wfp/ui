@@ -4,7 +4,13 @@ module.exports = {
     '@semantic-release/release-notes-generator',
     '@semantic-release/npm',
     '@semantic-release/git',
-    'semantic-release-ado',
+    [
+      'semantic-release-ado',
+      {
+        //"varName": "version",
+        setOnlyOnRelease: false,
+      },
+    ],
     /*[
       '@semantic-release/exec',
       {
