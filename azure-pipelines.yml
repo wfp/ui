@@ -12,10 +12,10 @@ jobs:
 
   steps:
   - script: >
-      npx -p semantic-release
+      npx  -p semantic-release
+      -p @semantic-release/changelog
       -p @semantic-release/git
       -p semantic-release-ado
-      -p @semantic-release/changelog
       semantic-release
     env: { GH_TOKEN: $(GitHubToken) }
     displayName: 'Semantic release'
