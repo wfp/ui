@@ -25,7 +25,7 @@ describe('TextInput', () => {
       });
 
       it('has the expected classes', () => {
-        expect(textInput().hasClass('wfp--text-input')).toEqual(true);
+        expect(textInput().hasClass('wfp--input')).toEqual(true);
       });
 
       it('should add extra classes that are passed via className', () => {
@@ -127,6 +127,9 @@ describe('TextInput', () => {
       );
 
       const input = wrapper.find('input');
+      //const input = () => wrapper.find('input');
+
+      log(wrapper);
 
       it('should not invoke onClick', () => {
         input.simulate('click');
@@ -162,6 +165,7 @@ describe('TextInput', () => {
 
       it('should invoke onClick when input is clicked', () => {
         input.simulate('click');
+        debugger;
         expect(onClick).toBeCalled();
       });
 

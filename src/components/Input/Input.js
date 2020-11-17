@@ -136,13 +136,13 @@ Input.propTypes = {
   /**
    * Specify a custom `id` for the &lt;input&gt;
    */
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 
   /**
    * Provide the text that will be read by a screen reader when visiting this
    * control
    */
-  labelText: PropTypes.node.isRequired,
+  labelText: PropTypes.node,
 
   /**
    * Optionally provide an `onChange` handler that is called whenever &lt;input&gt;

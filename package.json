@@ -28,7 +28,7 @@
     "storybook": "STORYBOOK_ASSETS=https://cdn.wfp.org/guides/ui/assets/v0.0.1/ STORYBOOK_NPM_VERSION=10.10.3 STORYBOOK_INTERNAL_ASSETS=../ start-storybook -s ./src/assets -p 9000",
     "test": "jest --watch",
     "test-ssr": "npm run build && node ssr-tests/*.js",
-    "jest-w": "jest --watch"
+    "test:chrome": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand src/components/TextInput/TextInput-test.js"
   },
   "keywords": [
     "WFP",

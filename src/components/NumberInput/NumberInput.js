@@ -40,7 +40,7 @@ function NumberInput(props) {
   const {
     additional,
     className,
-    disabled,
+    disabled = false,
     formItemClassName,
     id,
     hideLabel,
