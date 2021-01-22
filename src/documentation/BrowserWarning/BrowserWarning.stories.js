@@ -69,6 +69,10 @@ export const Warning = (args) => (
   </InfoBar>
 );
 
+Warning.parameters = {
+  code: false,
+};
+
 Warning.story = {
   parameters: {
     docs: {

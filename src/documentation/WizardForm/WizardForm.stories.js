@@ -167,3 +167,7 @@ Regular.decorators = [
   ),
 ];
 
+Regular.parameters = {
+  code: false,
+};
+

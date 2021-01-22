@@ -30,3 +30,7 @@ Regular.decorators = [
     </RegularPage>
   ),
 ];
+
+Regular.parameters = {
+  code: false,
+};

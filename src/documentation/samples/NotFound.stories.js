@@ -46,35 +46,8 @@ Regular.decorators = [
   ),
 ];
 
-Regular.args = {};
+// Regular.args = {};
 
-Regular.story = {
-  parameters: {
-    docs: {
-      source: {
-        code: `
-
-import { Wrapper, Story, Icon} from "@wfp/ui";
-import { iconWfpHumEmergencyResponsePos } from '@wfp/icons';
-
-<Wrapper pageWidth="lg" spacing="md">
-  <Story className="wfp--story__center wfp--story__full-height">
-    <Icon
-      icon={iconWfpHumEmergencyResponsePos}
-      fill="#0a6eb4"
-      width={200}
-      height={200}
-      style={{ marginBottom: '3rem', transform: 'rotate(10deg)' }}
-    />
-    <h1 className="wfp--story__title">Sorry, we couldn't find that page</h1>
-    <p>
-      Go back to <Link href="http://www.wfp.org">Homepage</Link> or visit{' '}
-      <Link href="http://www.wfp.org">another Page</Link>
-    </p>
-  </Story>
-</Wrapper>
-      `,
-      },
-    },
-  },
+Regular.parameters = {
+  code: false,
 };

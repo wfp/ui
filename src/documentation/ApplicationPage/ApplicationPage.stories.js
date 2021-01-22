@@ -18,65 +18,8 @@ export default {
 
 export const Default = (args) => <ApplicationPage />;
 
-Default.story = {
-  parameters: {
-    docs: {
-      source: {
-        code: `
-import { Wrapper, Module, ModuleHeader, ModuleBody, ModuleFooter } from "@wfp/ui";
-
-<Wrapper background="lighter" pageWidth="lg" spacing="md">
-<div className="row">
-  <Module className="col-xs-12 col-md-6 col-lg-4">
-    <ModuleHeader>Module Example</ModuleHeader>
-    <ModuleBody>
-      <p>
-        Content
-      </p>
-    </ModuleBody>
-  </Module>
-
-  <Module className="col-xs-12 col-md-6 col-lg-4">
-    <ModuleHeader>Module Example</ModuleHeader>
-    <ModuleBody>
-      <p>
-        Content
-      </p>
-    </ModuleBody>
-  </Module>
-
-  <Module className="col-xs-12 col-md-6 col-lg-4">
-    <ModuleHeader>Module Example</ModuleHeader>
-    <ModuleBody>
-      <p>
-        Content
-      </p>
-    </ModuleBody>
-  </Module>
-
-  <Module className="col-xs-12 col-md-6 col-lg-6">
-    <ModuleHeader>Module Example</ModuleHeader>
-    <ModuleBody>
-      <p>
-        Content
-      </p>
-    </ModuleBody>
-  </Module>
-
-  <Module className="col-xs-12 col-md-6 col-lg-6">
-    <ModuleHeader>Module Example</ModuleHeader>
-    <ModuleBody>
-      <p>
-        Content
-      </p>
-    </ModuleBody>
-  </Module>
-</div>
-</Wrapper>
-      `,
-      },
-    },
-  },
+Default.parameters = {
+  code: false,
 };
 
 /*

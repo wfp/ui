@@ -97,4 +97,6 @@ export const Regular = (args) => (
   </RegularPage>
 );
 
-Regular.args = {};
+Regular.parameters = {
+  code: false,
+};

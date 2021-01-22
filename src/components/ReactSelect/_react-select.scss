@@ -40,5 +40,20 @@
       opacity: 0.5;
       cursor: not-allowed;
     }
+    .#{$prefix}--react-select__menu {
+      margin-top: 2px;
+      border-radius: 0;
+      //box-shadow: none;
+      box-shadow: 0px 2px 5px rgba(#000, 0.1);
+      border: 1px solid var(--ui-04);
+    }
+
+    .#{$prefix}--react-select__option--is-focused {
+      background: var(--ui-02);
+    }
+
+    .#{$prefix}--react-select__dropdown-indicator {
+      color: var(--interactive-01);
+    }
   }
 }
