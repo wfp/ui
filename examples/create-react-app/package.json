@@ -1,15 +1,14 @@
 {
-  "name": "create-react-app-v2",
+  "name": "create-react-app-v2 example WFP UI Kit",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@wfp/icons": "^0.0.82",
-    "@wfp/ui": "^1.10.2",
-    "node-sass": "^4.14.1",
+    "@wfp/icons": "^0.0.84",
+    "@wfp/ui": "^1.11.0",
+    "node-sass": "^5.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-scripts": "4.0.0",
-    "twig": "^1.15.2"
+    "react-scripts": "4.0.2",
   },
   "scripts": {
     "start": "react-scripts start",
