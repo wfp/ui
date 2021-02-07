@@ -7,11 +7,11 @@ import {
 import {
   DocsContext,
   DocsContextProps,
-} from '@storybook/addon-docs/dist/blocks/DocsContext';
+} from '@storybook/addon-docs/dist/esm/blocks/DocsContext';
 import {
   SourceContext,
   SourceContextProps,
-} from '@storybook/addon-docs/dist/blocks/SourceContainer';
+} from '@storybook/addon-docs/dist/esm/blocks/SourceContainer';
 import { CURRENT_SELECTION } from './types';
 
 import { enhanceSource } from './enhanceSource';

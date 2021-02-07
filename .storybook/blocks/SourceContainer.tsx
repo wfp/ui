@@ -2,7 +2,7 @@ import React, { FC, Context, createContext, useEffect, useState } from 'react';
 import deepEqual from 'fast-deep-equal';
 import { addons } from '@storybook/addons';
 import { StoryId } from '@storybook/api';
-import { SNIPPET_RENDERED } from '@storybook/addon-docs/dist/shared';
+import { SNIPPET_RENDERED } from '@storybook/addon-docs/dist/esm/shared';
 
 export type SourceItem = string;
 export type StorySources = Record<StoryId, SourceItem>;

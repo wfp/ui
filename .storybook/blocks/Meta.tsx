@@ -4,7 +4,7 @@ import { Anchor } from './Anchor';
 import {
   DocsContext,
   DocsContextProps,
-} from '@storybook/addon-docs/dist/blocks/DocsContext';
+} from '@storybook/addon-docs/dist/esm/blocks/DocsContext';
 import { getDocsStories } from './utils';
 import { Component } from './types';
 

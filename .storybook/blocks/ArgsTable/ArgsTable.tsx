@@ -8,16 +8,16 @@ import { ArgRow } from './ArgRow';
 import { SectionRow } from './SectionRow';
 import { ArgType, ArgTypes, Args } from './types';
 //import { EmptyBlock } from '../EmptyBlock';
-import { EmptyBlock } from '@storybook/components/dist/blocks';
+import { EmptyBlock } from '@storybook/components'//'@storybook/components/dist/blocks';
 
 import {
   DocsContext,
   DocsContextProps,
-} from '@storybook/addon-docs/dist/blocks/DocsContext';
+} from '@storybook/addon-docs/dist/esm/blocks/DocsContext';
 
 //import { Link } from '../../typography/link/link';
 //import { Link } from '@storybook/components';
-import { ResetWrapper } from '@storybook/components/dist/typography/DocumentFormatting';
+import { ResetWrapper } from '@storybook/components';///dist/typography/DocumentFormatting';
 import Button from '../../../src/components/Button/Button';
 //import { ResetWrapper } from '../../typography/DocumentFormatting';
 

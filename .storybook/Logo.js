@@ -13,6 +13,7 @@ const legacyPreviousversions = [
   { link: 'https://cdn.wfp.org/guides/ui/v1.0.0/docs/', title: 'v1.0.0' },
 ];
 export function StorybookLogo() {
+  return null;
   return (
     <div className="wfp-logo">
       WFP{' '}

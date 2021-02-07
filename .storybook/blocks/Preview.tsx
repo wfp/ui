@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { toId, storyNameFromExport } from '@storybook/csf';
-import { resetComponents } from '@storybook/components/html';
+import { resetComponents } from '@storybook/components';
 import {
   //Preview as PurePreview,
   PreviewProps as PurePreviewProps,
@@ -16,11 +16,11 @@ import { Preview as PurePreview } from './PurePreview';
 import {
   DocsContext,
   DocsContextProps,
-} from '@storybook/addon-docs/dist/blocks/DocsContext';
+} from '@storybook/addon-docs/dist/esm/blocks/DocsContext';
 import {
   SourceContext,
   SourceContextProps,
-} from '@storybook/addon-docs/dist/blocks/SourceContainer';
+} from '@storybook/addon-docs/dist/esm/blocks/SourceContainer';
 import { getSourceProps } from './Source';
 
 import ReactDOMServer from 'react-dom/server';

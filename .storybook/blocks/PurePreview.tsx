@@ -9,13 +9,13 @@ import { styled } from '@storybook/theming';
 import { darken } from 'polished';
 import { logger } from '@storybook/client-logger';
 
-import { getBlockBackgroundStyle } from '@storybook/components/dist/blocks/BlockBackgroundStyles';
+import getBlockBackgroundStyle  from '../components/blocks/BlockBackgroundStyles'; //@storybook/components/dist/blocks/BlockBackgroundStyles';
 import { Source, SourceProps } from './Source';
 import {
   ActionBar,
   ActionItem,
-} from '@storybook/components/dist/ActionBar/ActionBar';
-import { Toolbar } from '@storybook/components/dist/blocks/Toolbar';
+} from '@storybook/components' //'@storybook/components/dist/ActionBar/ActionBar';
+import { Toolbar } from '../components/blocks/Toolbar.tsx'//'@storybook/components/dist/blocks/Toolbar';
 
 import ReactDOMServer from 'react-dom/server';
 import pretty from 'pretty';
@@ -228,6 +228,7 @@ const Scale = styled.div<{ scale: number }>(
       : {}
 );
 
+console.log("styled",Toolbar);
 const PositionedToolbar = styled(Toolbar)({
   position: 'absolute',
   top: 0,

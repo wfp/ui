@@ -1,5 +1,5 @@
 import React, { useContext, FunctionComponent } from 'react';
-import { DocsContext } from '@storybook/addon-docs/dist/blocks/DocsContext';
+import { DocsContext } from '@storybook/addon-docs/dist/esm/blocks/DocsContext';
 import { DocsStory } from './DocsStory';
 import { Heading } from './Heading';
 import { getDocsStories } from './utils';

@@ -1,6 +1,6 @@
 import React, { FunctionComponent, ReactNode, ComponentProps } from 'react';
 import { MDXProvider } from '@mdx-js/react';
-import { resetComponents } from '@storybook/components/html';
+import { resetComponents } from '@storybook/components';
 import { Story as PureStory } from '@storybook/components';
 import { toId, storyNameFromExport } from '@storybook/csf';
 import { CURRENT_SELECTION } from './types';
@@ -8,7 +8,7 @@ import { CURRENT_SELECTION } from './types';
 import {
   DocsContext,
   DocsContextProps,
-} from '@storybook/addon-docs/dist/blocks/DocsContext';
+} from '@storybook/addon-docs/dist/esm/blocks/DocsContext';
 
 export const storyBlockIdFromId = (storyId: string) => `story--${storyId}`;
 

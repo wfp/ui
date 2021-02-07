@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import { DocsContextProps } from '@storybook/addon-docs/dist/blocks/DocsContext';
+import { DocsContextProps } from '@storybook/addon-docs/dist/esm/blocks/DocsContext';
 import { StoryData, Component } from './types';
 
 export const getDocsStories = (context: DocsContextProps): StoryData[] => {

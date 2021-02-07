@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { H2 } from '@storybook/components/html';
+import { H2 } from '@storybook/components';
 import { HeaderMdx } from './mdx';
 
 export interface HeadingProps {

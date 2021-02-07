@@ -25,10 +25,10 @@ import Events from '@storybook/core-events';
 import {
   DocsContext,
   DocsContextProps,
-} from '@storybook/addon-docs/dist/blocks/DocsContext';
+} from '@storybook/addon-docs/dist/esm/blocks/DocsContext';
 import { Component, CURRENT_SELECTION, PRIMARY_STORY } from './types';
 import { getComponentName, getDocsStories } from './utils';
-import { ArgTypesExtractor } from '@storybook/addon-docs/dist/lib/docgen/types';
+import { ArgTypesExtractor } from '@storybook/addon-docs/dist/esm/lib/docgen/types';
 import { lookupStoryId } from './Story';
 
 type PropDescriptor = string[] | RegExp;

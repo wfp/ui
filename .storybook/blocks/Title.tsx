@@ -3,7 +3,7 @@ import { Title as PureTitle } from '@storybook/components';
 import {
   DocsContext,
   DocsContextProps,
-} from '@storybook/addon-docs/dist/blocks/DocsContext';
+} from '@storybook/addon-docs/dist/esm/blocks/DocsContext';
 import Text from '../../src/components/Text/Text';
 
 interface TitleProps {

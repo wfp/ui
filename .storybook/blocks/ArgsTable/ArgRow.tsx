@@ -6,7 +6,7 @@ import { ArgType, Args, TableAnnotation } from './types';
 import { ArgJsDoc } from './ArgJsDoc';
 import { ArgValue } from './ArgValue';
 import { ArgControl, ArgControlProps } from './ArgControl';
-import { codeCommon } from '@storybook/components/dist/typography/shared'; //'../../typography/shared';
+import { codeCommon } from '@storybook/components' //@storybook/components/dist/typography/shared'; //'../../typography/shared';
 
 export interface ArgRowProps {
   row: ArgType;

@@ -1,6 +1,6 @@
 import React, { useContext, FunctionComponent } from 'react';
 import { Subtitle as PureSubtitle } from '@storybook/components';
-import { DocsContext } from '@storybook/addon-docs/dist/blocks/DocsContext';
+import { DocsContext } from '@storybook/addon-docs/dist/esm/blocks/DocsContext';
 import Text from '../../src/components/Text/Text';
 
 interface SubtitleProps {

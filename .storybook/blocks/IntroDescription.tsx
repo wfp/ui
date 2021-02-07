@@ -6,9 +6,9 @@ import {
 import {
   DocsContext,
   DocsContextProps,
-} from '@storybook/addon-docs/dist/blocks/DocsContext';
+} from '@storybook/addon-docs/dist/esm/blocks/DocsContext';
 import { Component, CURRENT_SELECTION } from './types';
-import { str } from '@storybook/addon-docs/dist/lib/docgen';
+import { str } from '@storybook/addon-docs/dist/esm/lib/docgen';
 import ReactDOMServer from 'react-dom/server';
 import { MDXProvider } from '@mdx-js/react';
 

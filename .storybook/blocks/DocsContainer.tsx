@@ -5,15 +5,15 @@ import dedent from 'ts-dedent';
 import { MDXProvider } from '@mdx-js/react';
 import { ThemeProvider, ensure as ensureTheme } from '@storybook/theming';
 import { DocsWrapper, DocsContent } from '@storybook/components';
-import { components as htmlComponents } from '@storybook/components/html';
+import { components as htmlComponents } from '@storybook/components';
 import {
   DocsContextProps,
   DocsContext,
-} from '@storybook/addon-docs/dist/blocks/DocsContext';
-import { Code, components } from '@storybook/components/html';
+} from '@storybook/addon-docs/dist/esm/blocks/DocsContext';
+import { Code, components } from '@storybook/components';
 import { anchorBlockIdFromId } from './Anchor';
 import { storyBlockIdFromId } from './Story';
-import { SourceContainer } from '@storybook/addon-docs/dist/blocks/SourceContainer';
+import { SourceContainer } from '@storybook/addon-docs/dist/esm/blocks/SourceContainer';
 import { CodeOrSourceMdx, AnchorMdx, HeadersMdx } from './mdx';
 import { scrollToElement } from './utils';
 
