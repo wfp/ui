@@ -104,7 +104,12 @@ interface SourceItem {
 const getSource = (
   withSource: SourceProps,
   expanded: boolean,
-  setExpanded: Function
+  setExpanded: Function,
+  htmlComponent: string,
+  name: string,
+  storyFn: any,
+  subcomponents: any,
+  parameters: any
 ): SourceItem => {
   switch (true) {
     case !!(withSource && withSource.error): {
@@ -115,18 +120,100 @@ const getSource = (
           disabled: true,
           onClick: () => setExpanded(false),
         },
+        actionItemHtml: {
+          title: 'No html available',
+          disabled: true,
+          onClick: () => setExpanded(false),
+        },
       };
     }
-    case expanded: {
+
+    case expanded === 'twig': {
+      const html = parameters.twig ? parameters.twig : 'not found';
+      const htmlSource = {
+        code: pretty(html),
+        dark: false,
+        language: 'jsx',
+      };
       return {
-        source: <StyledSource {...withSource} dark />,
-        actionItem: { title: 'Hide code', onClick: () => setExpanded(false) },
+        source: <StyledSource {...htmlSource} dark />,
+        actionItem: { title: 'react', onClick: () => setExpanded(true) },
+        actionItemtwig: {
+          title: 'twig',
+          onClick: () => setExpanded(false),
+        },
+        actionItemHtml: {
+          title: 'html',
+          onClick: () => setExpanded(false),
+        },
+      };
+    }
+
+    case expanded === 'html': {
+      const html = ReactDOMServer.renderToStaticMarkup(storyFn).replace(
+        /role="[^"]*"/g,
+        ''
+      );
+      const htmlSource = {
+        code: pretty(html),
+        dark: false,
+        language: 'jsx',
+      };
+      return {
+        source: <StyledSource {...htmlSource} dark />,
+        actionItem: { title: 'react', onClick: () => setExpanded(true) },
+        actionItemtwig: {
+          title: 'twig',
+          onClick: () => setExpanded('twig'),
+        },
+        actionItemHtml: {
+          title: 'html',
+          onClick: () => setExpanded(false),
+        },
+      };
+    }
+
+    case expanded: {
+      let a = '';
+
+      if (subcomponents)
+        Object.keys(subcomponents).forEach((element) => {
+          a = `${a}, ${element}`;
+        });
+      const reactSource = {
+        code: parameters.docs.source
+          ? withSource.code
+          : `import { ${name} ${a} } from "@wfp/ui";
+        
+${withSource.code}`,
+        dark: false,
+        language: 'jsx',
+      };
+      return {
+        source: <StyledSource {...reactSource} dark />,
+        actionItem: { title: 'react', onClick: () => setExpanded(false) },
+        actionItemtwig: {
+          title: 'twig',
+          onClick: () => setExpanded('twig'),
+        },
+        actionItemHtml: {
+          title: 'html',
+          onClick: () => setExpanded('html'),
+        },
       };
     }
     default: {
       return {
         source: null,
-        actionItem: { title: 'Show code', onClick: () => setExpanded(true) },
+        actionItem: { title: 'react', onClick: () => setExpanded(true) },
+        actionItemtwig: {
+          title: 'twig',
+          onClick: () => setExpanded('twig'),
+        },
+        actionItemHtml: {
+          title: 'html',
+          onClick: () => setExpanded('html'),
+        },
       };
     }
   }
@@ -176,24 +263,47 @@ const Preview: FunctionComponent<PreviewProps> = ({
   columns,
   children,
   withSource,
+  htmlComponent,
   withToolbar = false,
   isExpanded = false,
-  additionalActions,
+  // additionalActions,
   className,
+  storyComponent,
+  subcomponents,
+  parameters,
   ...props
 }) => {
   const [expanded, setExpanded] = useState(isExpanded);
-  const { source, actionItem } = getSource(withSource, expanded, setExpanded);
+  const { source, actionItem,actionItemHtml, actionItemtwig } = getSource(
+    withSource,
+    expanded,
+    setExpanded,
+    htmlComponent,
+    name,
+    storyComponent(),
+    subcomponents,
+    parameters
+  );
   const [scale, setScale] = useState(1);
   const previewClasses = [className].concat(['sbdocs', 'sbdocs-preview']);
 
+
+  const additionalActions = [];
+  if (parameters.code !== false) additionalActions.push(actionItem);
+  if (parameters.twig) additionalActions.push(actionItemtwig);
+  if (parameters.html !== false) additionalActions.push(actionItemHtml);
+
   const defaultActionItems = withSource ? [actionItem] : [];
   const actionItems = additionalActions
-    ? [...defaultActionItems, ...additionalActions]
+    ? [/*...defaultActionItems,*/ ...additionalActions]
     : defaultActionItems;
 
   // @ts-ignore
   const layout = getLayout(Children.count(children) === 1 ? [children] : children);
+
+
+
+
 
   return (
     <PreviewContainer
