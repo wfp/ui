@@ -8,7 +8,7 @@ export default {
   component: Empty,
   parameters: {
     componentSubtitle: 'Component',
-    status: 'released',
+    status: 'experimental',
     mdx: markdown,
   },
 };
