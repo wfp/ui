@@ -23,6 +23,14 @@
   .#{$prefix}--form-item--inline {
     flex-direction: row;
     align-items: center;
+    .#{$prefix}--input-wrapper {
+      width: auto;
+    }
+    .#{$prefix}--label,
+    .#{$prefix}--form__helper-text {
+      margin-bottom: 0;
+      margin-right: $spacing-md;
+    }
   }
 
   .#{$prefix}--form-long {

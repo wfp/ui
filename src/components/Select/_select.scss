@@ -134,7 +134,7 @@
   }
 
   .#{$prefix}--select--inline {
-    display: grid;
+    /*display: grid;
     grid-template-columns: auto auto;
 
     // Targets IE10+ browsers: Display grid auto not supported
@@ -142,7 +142,8 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-    }
+    }*/
+    width: auto;
 
     .#{$prefix}--label {
       white-space: nowrap;
@@ -154,6 +155,7 @@
     .#{$prefix}--select-input {
       background-color: transparent;
       color: var(--interactive-01);
+      border: 0;
       font-weight: 600;
       box-shadow: none;
 
@@ -166,8 +168,7 @@
       }
 
       ~ .#{$prefix}--select__arrow {
-        bottom: auto;
-        top: 1rem;
+        top: 1.1rem;
       }
 
       &[data-invalid] {

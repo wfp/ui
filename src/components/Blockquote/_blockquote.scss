@@ -16,6 +16,10 @@
     align-items: center;
     border-radius: 3px;
 
+    @include breakpointMax(bp--xs--major) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
     pre[class*='language-'] {
       background: none;
       padding: 0;
@@ -95,6 +99,10 @@
     flex-shrink: 0;
     margin-right: $spacing-md;
     //margin-top: -15px;
+    @include breakpointMax(bp--xs--major) {
+      padding-top: 1em;
+      margin-left: $spacing-md;
+    }
   }
 
   .#{$prefix}--blockquote--code {
@@ -155,8 +163,17 @@
   .#{$prefix}--blockquote__action-buttons {
     margin-right: $spacing-md;
     white-space: nowrap;
-    > * {
-      margin-left: $spacing-xs;
+    @include breakpointMax(bp--xs--major) {
+      padding-bottom: $spacing-md;
+      margin-left: $spacing-md;
+      > * {
+        margin-right: $spacing-xs;
+      }
+    }
+    @include breakpoint(bp--xs--major) {
+      > * {
+        margin-left: $spacing-xs;
+      }
     }
   }
 }
